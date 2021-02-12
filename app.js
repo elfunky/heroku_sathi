@@ -28,8 +28,18 @@ app.use(session({
   cookie: { maxAge: 720000 }
 }));
 
+
+// const MongoClient = require('mongodb').MongoClient;
+// const uri = "mongodb+srv://root:<password>@cluster0.r20is.mongodb.net/<dbname>?retryWrites=true&w=majority";
+// const client = new MongoClient(uri, { useNewUrlParser: true });
+// client.connect(err => {
+//   const collection = client.db("test").collection("devices");
+//   // perform actions on the collection object
+//   client.close();
+// });
+
 //Database Connection
-mongoose.connect("mongodb://127.0.0.1:27017/express_mvc", { useUnifiedTopology: true, useNewUrlParser: true }, (err) => {
+mongoose.connect("mongodb://root:root@cluster0-shard-00-00.r20is.mongodb.net:27017,cluster0-shard-00-01.r20is.mongodb.net:27017,cluster0-shard-00-02.r20is.mongodb.net:27017/new_database?ssl=true&replicaSet=atlas-v351vz-shard-0&authSource=admin&retryWrites=true&w=majority", { useUnifiedTopology: true, useNewUrlParser: true }, (err) => {
   if (err)
     throw err;
   else
